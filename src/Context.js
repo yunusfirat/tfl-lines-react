@@ -5,17 +5,28 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
 const [loading,setLoading] = useState(true);
+const [lineData, setLineData] = useState([]);
     const fetchModeTfl = async () => {
-        setLoading(false);
+        setLoading(true);
         try {
             const response = await fetch(url);
             const data = await response.json();
-            console.log(data);
+            if(data){
+                const fetchedlines = data.map((item)=> {
+                    return (
+                        item.modeName
+                    );
+                });
+                setLineData(fetchedlines);
+            }else {
+                setLineData([]);
+            }
+            setLoading(false);
         } catch (error) {
             console.log(error);
+            setLoading(false);
         }
     };
-
     useEffect(()=> {
         fetchModeTfl();
     },[]);
@@ -24,7 +35,7 @@ const [loading,setLoading] = useState(true);
 
 
     return (
-        <AppContext.Provider value={{ loading }}>
+        <AppContext.Provider value={{ loading, lineData }}>
             {children}
         </AppContext.Provider>
     );
