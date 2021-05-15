@@ -193,7 +193,8 @@ code {
 }
 
 .section {
-  width: 40%;
+  width: 50%;
+  height: 50%;
   text-align: left;
   align-items: center;
   display: block;

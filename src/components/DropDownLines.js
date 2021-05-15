@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGlobalContext } from "../Context";
 import Loading from "./Loading";
-
+import LineSelector from "./LineSelector";
 const DropDownLines = () => {
     const { lineData, loading } = useGlobalContext();
     const [selectItem, setSelectItem] = useState("");
@@ -14,22 +14,25 @@ const DropDownLines = () => {
         );
     }
     const handleChange = (e) => {
-        console.log("hello world", e.target.value);
         setSelectItem(e.target.value);
     };
 
     return (
+        <>
         <div className="section">
-            <select onChange={handleChange} class="form-select" aria-label="select example">
-            <option selected>Choose a mode of transport...</option>
+            <select onChange={handleChange} className="form-select" aria-label="select example">
+            <option defaultValue>Choose a mode of transport...</option>
                 {lineData.map((line, index) => {
                     return (
-                        <option value={line} key={index}>{line}</option>
+                        <option value={line}
+                        key={index}
+                        >{line}</option>
                     );
                 })}
             </select>
-            <p>You selected Mode: {selectItem}</p>
         </div>
+         <LineSelector selectitem={selectItem} />
+         </>
     );
 };
 
