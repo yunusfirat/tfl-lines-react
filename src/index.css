@@ -207,3 +207,7 @@ option {
   background-color: grey;
   color: #fff;
 }
+
+.header {
+  margin-top: 5px;
+}

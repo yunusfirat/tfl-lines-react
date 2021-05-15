@@ -19,6 +19,7 @@ const DropDownLines = () => {
 
     return (
         <>
+        <div className="header"><h1>Transport For London Line Information</h1></div>
         <div className="section">
             <select onChange={handleChange} className="form-select" aria-label="select example">
             <option defaultValue>Choose a mode of transport...</option>
