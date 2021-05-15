@@ -10,7 +10,6 @@ const LineInformation = ( { lineSelector }) => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            console.log(data);
             if(data){
                 let newname = data.name;
                 let newmodeName = data.modeName;
@@ -34,7 +33,6 @@ const LineInformation = ( { lineSelector }) => {
 useEffect(() => {
     setCheck(check.concat(selectItem));
 },[selectItem]);
-console.log(check);
     return(
         <div  className={check.length %2 === 1 ? "column" : "none" }>
             <h1>{lineInfo[1]}: {lineInfo[0]}</h1>
