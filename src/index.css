@@ -191,3 +191,18 @@ code {
   margin-bottom: 3.5rem;
   margin-top: 1rem;
 }
+
+.section {
+  width: 40%;
+  text-align: left;
+  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2rem;
+}
+
+option {
+  background-color: grey;
+  color: #fff;
+}
