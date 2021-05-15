@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
-
+import LineInformation from "./LineInformation";
 const url = "https://api.tfl.gov.uk/Line/Mode/";
 const LineSelector = ({ selectitem }) => {
     const [lineSelector, setLineSelector] = useState("");
@@ -43,7 +43,7 @@ const handleChange = (e) => {
                 );
             })}
         </select>
-        <p>You selected Line: {lineSelector}</p>
+        <>{lineSelector ? <LineInformation lineSelector ={lineSelector} /> : null} </>
     </div>
     );
 };

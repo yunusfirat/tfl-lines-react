@@ -193,7 +193,7 @@ code {
 }
 
 .section {
-  width: 50%;
+  width: 70%;
   height: 50%;
   text-align: left;
   align-items: center;
@@ -210,4 +210,39 @@ option {
 
 .header {
   margin-top: 5px;
+}
+.flex{
+  display: flex;
+  gap: 4rem;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  gap: 20px;
+  margin-top: 10px;
+}
+.info {
+  color: #fff;
+  background-color: hsl(217, 68%, 50%);
+  border-radius: 10px;
+  padding: 5rem;
+  position: relative;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+.start{
+  margin: auto;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.icon {
+  position: absolute;
+  top:22rem;
+  right: 20rem;
+  width: 27%;
+  size: 20rem;
 }
