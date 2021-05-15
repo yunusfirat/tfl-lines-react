@@ -32,7 +32,7 @@ const DropDownLines = () => {
                 })}
             </select>
         </div>
-         <LineSelector selectitem={selectItem} />
+        {selectItem ? <LineSelector selectitem={selectItem} /> : null}
          </>
     );
 };
