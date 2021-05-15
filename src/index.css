@@ -246,3 +246,6 @@ h1 {
   width: 27%;
   size: 20rem;
 }
+.none {
+  display: none;
+}

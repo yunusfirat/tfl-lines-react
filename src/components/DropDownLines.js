@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobalContext } from "../Context";
 import Loading from "./Loading";
 import LineSelector from "./LineSelector";
 const DropDownLines = () => {
-    const { lineData, loading } = useGlobalContext();
-    const [selectItem, setSelectItem] = useState("");
+    const { lineData, loading, selectItem, setSelectItem } = useGlobalContext();
     if (loading) {
         return <Loading />;
     }

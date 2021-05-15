@@ -1,8 +1,10 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useGlobalContext } from "../Context";
 const LineInformation = ( { lineSelector }) => {
     const [lineInfo, setLineInfo ] = useState([]);
-    console.log(lineInfo);
+    const { selectItem } = useGlobalContext();
+    const [check ,setCheck ] = useState([]);
     const url = `https://api.tfl.gov.uk/Line/${lineSelector}/Route`;
     const fetchinformation = useCallback (async () => {
         try {
@@ -16,6 +18,7 @@ const LineInformation = ( { lineSelector }) => {
                 let finish = data.routeSections[1].originationName;
                let lineInformation = [newname, newmodeName, start, finish];
                 setLineInfo(lineInformation);
+                setCheck(check.concat(...check, lineSelector));
             }else {
                 setLineInfo([]);
             }
@@ -27,8 +30,13 @@ const LineInformation = ( { lineSelector }) => {
     useEffect(()=> {
         fetchinformation();
     },[fetchinformation, lineSelector]);
+
+useEffect(() => {
+    setCheck(check.concat(selectItem));
+},[selectItem]);
+console.log(check);
     return(
-        <div className="column">
+        <div  className={check.length %2 === 1 ? "column" : "none" }>
             <h1>{lineInfo[1]}: {lineInfo[0]}</h1>
             <div className="flex">
             <div className="info">

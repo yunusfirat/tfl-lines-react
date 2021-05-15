@@ -6,6 +6,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
 const [loading,setLoading] = useState(true);
 const [lineData, setLineData] = useState([]);
+const [selectItem, setSelectItem] = useState("");
     const fetchModeTfl = async () => {
         setLoading(true);
         try {
@@ -35,7 +36,7 @@ const [lineData, setLineData] = useState([]);
 
 
     return (
-        <AppContext.Provider value={{ loading, lineData }}>
+        <AppContext.Provider value={{ loading, lineData, selectItem, setSelectItem }}>
             {children}
         </AppContext.Provider>
     );
